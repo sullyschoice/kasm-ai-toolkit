@@ -1,4 +1,4 @@
-FROM kasmweb/ubuntu-noble-desktop:1.18.0-rolling-daily
+FROM kasmweb/desktop:1.18.0-rolling-daily
 USER root
 
 ENV HOME=/home/kasm-default-profile
@@ -19,7 +19,7 @@ RUN chown 1000:1000 /opt/ai-toolkit/launcher.sh
 COPY ./src/ai-toolkit/ai-toolkit.png /opt/ai-toolkit/ai-toolkit.png
 RUN chown 1000:1000 /opt/ai-toolkit/ai-toolkit.png
 
-RUN apt-get update && apt-get install -y nomacs
+RUN apt-get update && apt-get install -y nomacs gimp vlc
 
 ######### End Customizations ###########
 
@@ -32,3 +32,4 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 
 
 USER 1000
+
