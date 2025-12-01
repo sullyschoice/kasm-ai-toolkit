@@ -1,4 +1,4 @@
-FROM kasmweb/desktop:1.18.0-rolling-daily
+FROM kasmweb/core-ubuntu-noble:1.18.0-rolling-daily
 USER root
 
 ENV HOME=/home/kasm-default-profile
@@ -20,6 +20,12 @@ COPY ./src/ai-toolkit/ai-toolkit.png /opt/ai-toolkit/ai-toolkit.png
 RUN chown 1000:1000 /opt/ai-toolkit/ai-toolkit.png
 
 RUN apt-get update && apt-get install -y nomacs gimp vlc
+
+RUN cd /tmp && \
+ curl -L \
+ https://raw.githubusercontent.com/kasmtech/workspaces-images/refs/heads/develop/src/ubuntu/install/chrome/install_chrome.sh  -o install_chrome.sh && \
+ bash ./install_chrome.sh && \
+ rm ./install_chrome.sh
 
 ######### End Customizations ###########
 
