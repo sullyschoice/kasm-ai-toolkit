@@ -2,7 +2,7 @@
 cd /opt/ai-toolkit
 source venv/bin/activate
 cd ui
-xfce4-terminal --hold --command "npm run start" &
+xfce4-terminal --hold --command "npm run build_and_start" &
 UI_SERVER="127.0.0.1:8675"
 check_web_server() {
     curl -s -o /dev/null http://$UI_SERVER && return 0 || return 1

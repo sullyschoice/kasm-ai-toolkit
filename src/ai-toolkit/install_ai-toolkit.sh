@@ -3,7 +3,7 @@ set -ex
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 apt-get update
-apt-get install -y python3-venv  nodejs npm
+apt-get install -y python3-venv  nodejs npm python3.12
 
 mkdir -p /opt/
 cd /opt
@@ -12,7 +12,8 @@ cd ai-toolkit
 python3 -m venv venv
 source venv/bin/activate
 pip uninstall torch
-pip3 install --no-cache-dir torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu126
+pip3 install --no-cache-dir torch==2.9.1 torchvision==0.24.1 torchaudio==2.9.1 --index-url https://download.pytorch.org/whl/cu128
+pip3 install setuptools==69.5.1
 pip3 install -r requirements.txt
 
 cd ui
